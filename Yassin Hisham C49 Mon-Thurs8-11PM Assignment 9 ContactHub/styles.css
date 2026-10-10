@@ -1,0 +1,94 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f6fc;
+}
+
+.btnofnavbar {
+  background-color: #5946ee !important;
+  color: white !important;
+  padding: 6px 12px !important;
+  width: auto !important;
+  white-space: nowrap !important;
+  border: 1px solid black !important;
+  border-radius: 20px !important;
+  box-shadow: 1px 1px 4px black !important;
+}
+
+.container-fluid {
+  background-color: #fcfefe !important;
+}
+
+.bg-body-tertiary {
+  background-color: #fcfefe !important;
+}
+
+.infocards {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.infocard {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 8px black;
+  width: 30%;
+}
+
+.all {
+  margin-left: 50px;
+}
+
+.faveme {
+  margin-left: 50px;
+}
+
+.card {
+  width: 400px;
+}
+
+.container-fluid {
+  background-color: #f5f6fc !important;
+}
+
+/ dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+}
+
+dialog {
+  max-width: 480px;
+  width: 90%;
+  border: none;
+  background-color: #ffffff;
+}
+
+.avatar-circle {
+  width: 80px;
+  height: 80px;
+  background-color: #4c7bf4;
+  border-radius: 50%;
+}
+
+.custom-input {
+  background-color: #fcfcfd;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+}
+
+.custom-input:focus {
+  background-color: #ffffff;
+  border-color: #4c7bf4;
+  box-shadow: 0 0 0 3px rgba(76, 123, 244, 0.15);
+}
+
+.form-label {
+  font-size: 0.88rem;
+  color: #334155;
+}

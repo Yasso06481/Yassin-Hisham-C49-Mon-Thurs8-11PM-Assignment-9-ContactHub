@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <button
+            class="btn btnofnavbar"
+            id="openBtn"
+            style="margin-left: 10px"
+          >
+            + Add Contact
+          </button>
+          <dialog dialog id="modal" class="p-0 border-0 rounded-4 shadow-lg">
+            <div
+              class="d-flex justify-content-between align-items-center px-4 pt-4 pb-2"
+            >
+              <h5 class="fw-bold m-0">Add New Contact</h5>
+              <button
+                type="button"
+                class="btn-close shadow-none"
+                id="closeBtn"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <form class="px-4 pb-4 needs-validation" novalidate>
+              <div class="text-center my-3">
+                <div
+                  class="avatar-circle mx-auto mb-2 d-flex align-items-center justify-content-center text-white"
+                ></div>
+                <button
+                  type="button"
+                  class="btn btn-light btn-sm rounded-3 border text-secondary px-3 py-1 fw-medium"
+                >
+                  Change Photo
+                </button>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="fullName" class="form-label fw-medium mb-1"
+                    >Full Name <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control custom-input"
+                    id="fullName"
+                    placeholder="Enter full name"
+                    required
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label for="phoneNumber" class="form-label fw-medium mb-1"
+                    >Phone Number <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control custom-input"
+                    id="phoneNumber"
+                    placeholder="e.g., 01012345678"
+                    required
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label for="emailAddress" class="form-label fw-medium mb-1"
+                    >Email Address</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control custom-input"
+                    id="emailAddress"
+                    placeholder="name@example.com"
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label for="address" class="form-label fw-medium mb-1"
+                    >Address</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control custom-input"
+                    id="address"
+                    placeholder="Enter address"
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label for="groupSelect" class="form-label fw-medium mb-1"
+                    >Group</label
+                  >
+                  <select
+                    class="form-select custom-input text-secondary"
+                    id="groupSelect"
+                  >
+                    <option selected value="Family">Family</option>
+                    <option value="Friends">Friends</option>
+                    <option value="Work">Work</option>
+                    <option value="School">School</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <label for="notes" class="form-label fw-medium mb-1"
+                    >Notes</label
+                  >
+                  <textarea
+                    class="form-control custom-input"
+                    id="notes"
+                    rows="2"
+                    placeholder="Add notes about this contact"
+                  ></textarea>
+                </div>
+
+                <div class="col-12 d-flex gap-4 my-2">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="favoriteCheck"
+                    />
+                    <label
+                      class="form-check-label fw-medium"
+                      for="favoriteCheck"
+                      >Favorite</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="emergencyCheck"
+                    />
+                    <label
+                      class="form-check-label fw-medium"
+                      for="emergencyCheck"
+                      >Emergency</label
+                    >
+                  </div>
+                </div>
+
+                <div class="col-12 d-flex gap-2 pt-2">
+                  <button
+                    class="btn btn-light w-50 py-2 text-secondary border fw-medium rounded-3"
+                    type="button"
+                    id="cancelBtn"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary w-50 py-2 fw-medium rounded-3"
+                    style="background-color: #4c7bf4; border-color: #4c7bf4"
+                    type="submit"
+                    id="SaveBtn"
+                    onclick="createcontact()"
+                  >
+                    Save contact
+                  </button>
+                </div>
+              </div>
+            </form>
+          </dialog>
+          <button
+            class="btn btn-outline-success"
+            style="
+              background-image: url(avatar-4.jpg);
+              background-size: cover;
+              background-position: center;
+              width: 50px;
+              height: 50px;
+              margin-left: 10px;
+            "
+          ></button>
+          <button
+            class="btn btn-outline-success"
+            style="
+              background-image: url(&quot;Screenshot 2026-10-04 181024.png&quot;);
+              background-size: cover;
+              background-position: center;
+              width: 50px;
+              height: 50px;
+              margin-left: 10px;
+            "
+          ></button>
+          <button
+            class="btn btn-outline-success"
+            style="
+              background-image: url(&quot;Screenshot 2026-10-04 180815.png&quot;);
+              background-size: cover;
+              background-position: center;
+              width: 50px;
+              height: 50px;
+              margin-left: 10px;
+            "
+          ></button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="infocards d-flex row">
+      <div class="infocard d-flex align-items-center gap-3">
+        <img
+          src="Screenshot 2026-10-04 190106.png"
+          style="width: 50px; height: 50px"
+          alt="imageoflogo"
+        />
+        <div class="card-text-content">
+          <span style="color: #6c7281">Total</span>
+          <div>0</div>
+        </div>
+      </div>
+
+      <div class="infocard d-flex align-items-center gap-3">
+        <img
+          src="Screenshot 2026-10-04 190256.png"
+          style="width: 50px; height: 50px"
+          alt="imageoflogo"
+        />
+        <div class="card-text-content">
+          <span style="color: #6c7281">Favorites</span>
+          <div>0</div>
+        </div>
+      </div>
+
+      <div class="infocard d-flex align-items-center gap-3">
+        <img
+          src="Screenshot 2026-10-04 190310.png"
+          style="width: 50px; height: 50px"
+          alt="imageoflogo"
+        />
+        <div class="card-text-content">
+          <span style="color: #6c7281">Emergency</span>
+          <div>0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid px-5 mt-4">
+      <div class="row g-4">
+        <div class="col-lg-8 col-md-7">
+          <div class="all mb-3">
+            <span style="font-weight: bold; font-size: 32px">All Contacts</span
+            ><br />
+            <span style="color: #6c7281"
+              >Manage and organize your 0 contacts</span
+            >
+          </div>
+
+          <input
+            type="text"
+            class="form-control rounded-4 border-secondary-subtle py-2 px-3 custom-search w-100"
+            placeholder="Search by name, phone, or email..."
+          />
+
+          <div id="contactsContainer">
+            <div id="emptyState" class="text-center my-5 py-5 text-muted">
+              <div class="fw-bold mt-2">No contacts found</div>
+              <small>Click "+Add Contact" to get started</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-5">
+          <div class="d-flex flex-column gap-3">
+            <div class="card border-0 shadow-sm rounded-4">
+              <div
+                class="card-header border-0 rounded-top-4 p-3 d-flex align-items-center gap-3"
+                style="background-color: #fdf8ee"
+              >
+                <img
+                  src="Screenshot 2026-10-04 190256.png"
+                  style="width: 40px; height: 40px"
+                  alt="Favorites Icon"
+                />
+                <div>
+                  <div class="fw-bold">Favorites</div>
+                  <span style="color: #6c7281; font-size: 12px"
+                    >Quick access to starred contacts</span
+                  >
+                </div>
+              </div>
+              <div class="card-body text-center py-4 text-muted">
+                No favorites yet
+              </div>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-4">
+              <div
+                class="card-header border-0 rounded-top-4 p-3 d-flex align-items-center gap-3"
+                style="background-color: #fbf2f2"
+              >
+                <img
+                  src="Screenshot 2026-10-04 190310.png"
+                  style="width: 40px; height: 40px"
+                  alt="Emergency Icon"
+                />
+                <div>
+                  <div class="fw-bold">Emergency</div>
+                  <span style="color: #6c7281; font-size: 12px"
+                    >Important contacts for urgent calls</span
+                  >
+                </div>
+              </div>
+              <div class="card-body text-center py-4 text-muted">
+                No emergency contacts
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="bootstrap.bundle.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
